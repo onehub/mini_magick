@@ -149,6 +149,11 @@ module MiniMagick
     end
 
     def run_command(command, *args)
+      # -ping "efficiently determine image characteristics."
+      if command == 'identify'
+        args << '-ping'
+      end
+      
       args.collect! do |arg|        
         # args can contain characters like '>' so we must escape them, but don't quote switches
         if arg !~ /^[\+\-]/
