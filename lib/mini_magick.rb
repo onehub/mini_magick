@@ -151,7 +151,7 @@ module MiniMagick
     def run_command(command, *args)
       # -ping "efficiently determine image characteristics."
       if command == 'identify'
-        args << '-ping'
+        args.unshift '-ping'
       end
       
       args.collect! do |arg|        
